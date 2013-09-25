@@ -8,6 +8,18 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Agentes"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuINovo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Novo..."/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuMeus">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Meus..."/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jmenuAbout">
           <Properties>

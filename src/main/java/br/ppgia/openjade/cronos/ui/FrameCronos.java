@@ -28,12 +28,21 @@ public class FrameCronos extends javax.swing.JFrame {
 
         jMenuBar1 = new javax.swing.JMenuBar();
         jmenuAgents = new javax.swing.JMenu();
+        jMenuINovo = new javax.swing.JMenuItem();
+        jMenuMeus = new javax.swing.JMenuItem();
         jmenuAbout = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cronos v1.0.0");
 
         jmenuAgents.setText("Agentes");
+
+        jMenuINovo.setText("Novo...");
+        jmenuAgents.add(jMenuINovo);
+
+        jMenuMeus.setText("Meus...");
+        jmenuAgents.add(jMenuMeus);
+
         jMenuBar1.add(jmenuAgents);
 
         jmenuAbout.setText("Sobre");
@@ -92,6 +101,8 @@ public class FrameCronos extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuINovo;
+    private javax.swing.JMenuItem jMenuMeus;
     private javax.swing.JMenu jmenuAbout;
     private javax.swing.JMenu jmenuAgents;
     // End of variables declaration//GEN-END:variables
