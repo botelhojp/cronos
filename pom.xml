@@ -51,7 +51,25 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>          
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jarsigner-plugin</artifactId>
+                <version>1.2</version>
+                <executions>
+                    <execution>
+                        <id>sign</id>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <keystore>${basedir}/src/main/resources/cronosKeystore</keystore>
+                    <alias>cronosAlias</alias>
+                    <storepass>${keystore.storepass}</storepass>
+                </configuration>
+            </plugin>            
         </plugins>
     </build>
     <repositories>
