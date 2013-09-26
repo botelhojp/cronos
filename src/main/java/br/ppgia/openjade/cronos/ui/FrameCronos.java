@@ -4,6 +4,8 @@
  */
 package br.ppgia.openjade.cronos.ui;
 
+import static java.awt.Frame.MAXIMIZED_BOTH;
+
 /**
  *
  * @author vanderson
@@ -14,7 +16,8 @@ public class FrameCronos extends javax.swing.JFrame {
      * Creates new form FrameCronos
      */
     public FrameCronos() {
-        initComponents();
+        setExtendedState(MAXIMIZED_BOTH);  
+        initComponents();        
     }
 
     /**
