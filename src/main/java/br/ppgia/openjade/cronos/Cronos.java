@@ -1,21 +1,33 @@
 package br.ppgia.openjade.cronos;
 
+import br.ppgia.openjade.cronos.dao.AcaoDAO;
 import br.ppgia.openjade.cronos.ui.FrameCronos;
 import br.ppgia.openjade.cronos.ui.SplashScreen;
-import javax.swing.ImageIcon;
+import org.apache.log4j.Logger;
 
 public class Cronos {
-    public static void main(String args[]) {     
+    
+    private static Logger log = Logger.getLogger(Cronos.class);
 
+    public static void main(String args[]) {
         SplashScreen spaScreen = new SplashScreen();
-        spaScreen.showScreen();
-        spaScreen.setProgress("interface", 0);        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new FrameCronos().setVisible(true);
-            }
-        });             
-        spaScreen.close();        
+        try {
+            spaScreen.showScreen();
+            spaScreen.setProgress("interface", 0);
+
+            AcaoDAO dao = AcaoDAO.getInstance();
+            dao.list();
+
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    new FrameCronos().setVisible(true);
+                }
+            });
+        } catch (Exception ex) {
+            log.error("Erro ao inicar o cronos. \nCausa:", ex);
+        } finally {
+            spaScreen.close();
+        }
     }
 }

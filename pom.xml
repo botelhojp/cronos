@@ -29,6 +29,31 @@
             <groupId>open-jade</groupId>
             <artifactId>trust-model</artifactId>
         </dependency>
+        
+        <dependency>
+            <groupId>hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>1.8.0.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate</artifactId>
+            <version>3.2.6.ga</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-annotations</artifactId>
+            <version>3.2.1.ga</version>
+        </dependency>
+                
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
@@ -77,5 +102,13 @@
             <id>ppgia</id>
             <url>http://www.ppgia.pucpr.br/~vanderson/repositories/internal/</url>
         </repository>
+        <repository>
+            <id>demoiselle.sourceforge.net-release</id>
+            <url>http://demoiselle.sourceforge.net/repository/release</url>
+        </repository>
+        <repository>
+            <id>demoiselle.sourceforge.net-snapshot</id>
+            <url>http://demoiselle.sourceforge.net/repository/snapshot</url>
+        </repository>        
     </repositories>
 </project>
