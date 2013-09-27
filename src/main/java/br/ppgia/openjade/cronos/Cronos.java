@@ -25,6 +25,7 @@ public class Cronos {
                 }
             });
         } catch (Exception ex) {
+        	ex.printStackTrace();
             log.error("Erro ao inicar o cronos. \nCausa:", ex);
         } finally {
             spaScreen.close();

@@ -2,7 +2,7 @@ package br.ppgia.openjade.cronos.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import org.hibernate.cfg.AnnotationConfiguration;
 
 public class HibernateUtil {
 
@@ -11,7 +11,7 @@ public class HibernateUtil {
 	
 	public static Session getCurrentSession() {
 		if (factory == null){
-			factory = new Configuration().configure().buildSessionFactory();
+			factory = new AnnotationConfiguration().configure().buildSessionFactory();
 			session = factory.openSession();
 		}			
 		if (!session.isOpen()){

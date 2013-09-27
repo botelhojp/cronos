@@ -1,19 +1,42 @@
 package br.ppgia.openjade.cronos.bean;
 
-import jade.content.onto.annotations.Element;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+
+
+
+
 
 @Entity
+@Table(name = "tb_acao")
 public class Acao implements java.io.Serializable {
 
     private static final long serialVersionUID = 8457914838257793588L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idAcao")
     private Long idAcao;
     private String nomeres;
     private String nomefull;
     private Boolean ibovespa;
-    private Set<Cotacao> cotacaos = new HashSet<Cotacao>(0);
+    
+    
+	@OneToMany(mappedBy = "acao", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@Cascade(org.hibernate.annotations.CascadeType.DELETE_ORPHAN)	
+	private List<Cotacao> cotacoes = new ArrayList<Cotacao>();
+    
 
     public Acao() {
     }
@@ -26,11 +49,11 @@ public class Acao implements java.io.Serializable {
         this.nomeres = nomeres;
     }
 
-    public Acao(Long idAcao, String nomeres, Boolean ibovespa, Set<Cotacao> cotacaos) {
+    public Acao(Long idAcao, String nomeres, Boolean ibovespa, List<Cotacao> cotacoes) {
         this.idAcao = idAcao;
         this.nomeres = nomeres;
         this.ibovespa = ibovespa;
-        this.cotacaos = cotacaos;
+        this.cotacoes = cotacoes;
     }
 
     // Property accessors
@@ -58,12 +81,12 @@ public class Acao implements java.io.Serializable {
         this.ibovespa = ibovespa;
     }
 
-    public Set<Cotacao> getCotacaos() {
-        return this.cotacaos;
+    public List<Cotacao> getCotacoes() {
+        return this.cotacoes;
     }
 
-    public void setCotacaos(Set<Cotacao> cotacaos) {
-        this.cotacaos = cotacaos;
+    public void setCotacoes(List<Cotacao> cotacoes) {
+        this.cotacoes = cotacoes;
     }
 
     public String getNomefull() {

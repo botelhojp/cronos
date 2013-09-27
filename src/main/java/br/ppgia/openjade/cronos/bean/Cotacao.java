@@ -1,14 +1,32 @@
 package br.ppgia.openjade.cronos.bean;
 
-import br.ppgia.openjade.cronos.dao.AcaoDAO;
 import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import br.ppgia.openjade.cronos.dao.AcaoDAO;
 
 @Entity
+@Table(name = "tb_cotacao")
 public class Cotacao implements java.io.Serializable {
 
     private static final long serialVersionUID = 5015670764633320404L;
+    
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idCotacao")
     private Long idCotacao;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "acao", nullable = false)
     private Acao acao;
     private Date datapre;
     private Float preabe;

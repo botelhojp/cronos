@@ -24,7 +24,7 @@
 		<property name="dialect">org.hibernate.dialect.HSQLDialect</property>
 
 		<mapping class="br.ppgia.openjade.cronos.bean.Acao" />
-                <mapping class="br.ppgia.openjade.cronos.bean.Cotacao" />
+        <mapping class="br.ppgia.openjade.cronos.bean.Cotacao" />
 
 	</session-factory>
 </hibernate-configuration>
